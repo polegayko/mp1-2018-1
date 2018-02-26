@@ -8,16 +8,15 @@ class DlinConventer
 	double metr;
 
 public:
-	DlinConventer(double metry = 1) : metr(metry) {}
+	DlinConventer(double metry = 1)
+	{
+		metr = metry;
+	}
 
 	DlinConventer& operator=(double m)
 	{
 		metr = m;
 		return *this;
-	}
-	double PreobMetr()
-	{
-		return metr;
 	}
 	double PreobFut()
 	{
@@ -77,7 +76,6 @@ public:
 	}
 	void VseMery()
 	{
-		cout << "Dlina v metrah =" << PreobMetr() << "\n";
 		cout << "Dlina v futah =" << PreobFut() << "\n";
 		cout << "Dlina v yardah =" << PreobYard() << "\n";
 		cout << "Dlina v sajeni =" << PreobSaj() << "\n";
@@ -110,53 +108,46 @@ void main()
 			break;
 
 		case 2:
-			cout << "Vyberete edinicy izmereniya" << "\n" << "1 - Metry\n" << "2 - Futy\n" << "3 - Yard\n" << "4 - Sajen\n" << "5 - Pyad\n" << "6 - Duymy\n" << "7 - Mili\n";
+			cout << "Vyberete edinicy izmereniya" << "\n" << "1 - Futy\n" << "2 - Yard\n" << "3 - Sajen\n" << "4 - Pyad\n" << "5 - Duymy\n" << "6 - Mili\n";
 			cin >> b;
 			switch (b)
 			{
 			case 1:
-			{
-				K.Metr();
-				system("pause");
-				system("cls");
-				break;
-			}
-			case 2:
 			{
 				K.Fut();
 				system("pause");
 				system("cls");
 				break;
 			}
-			case 3:
+			case 2:
 			{
 				K.Yard();
 				system("pause");
 				system("cls");
 				break;
 			}
-			case 4:
+			case 3:
 			{
 				K.Sajen();
 				system("pause");
 				system("cls");
 				break;
 			}
-			case 5:
+			case 4:
 			{
 				K.Pyad();
 				system("pause");
 				system("cls");
 				break;
 			}
-			case 6:
+			case 5:
 			{
 				K.Duym();
 				system("pause");
 				system("cls");
 				break;
 			}
-			case 7:
+			case 6:
 			{
 				K.Milya();
 				system("pause");
