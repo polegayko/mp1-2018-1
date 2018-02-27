@@ -12,11 +12,19 @@ public:
 	{
 		metr = metry;
 	}
-
 	DlinConventer& operator=(double m)
 	{
 		metr = m;
 		return *this;
+	}
+	DlinConventer& operator=(const DlinConventer& m)
+	{
+		metr = m.metr;
+		return *this;
+	}
+	double VozvrMetr()
+	{
+		return metr;
 	}
 	double PreobFut()
 	{
@@ -46,9 +54,9 @@ public:
 	{
 		metr = met;
 	}
-	void Metr()
+	void DlinaMetry()
 	{
-		cout << "Dlina v metrah =" << PreobMetr() << "\n";
+		cout << "Dlina v metrah =" << VozvrMetr() << "\n";
 	}
 	void Fut()
 	{
@@ -108,7 +116,7 @@ void main()
 			break;
 
 		case 2:
-			cout << "Vyberete edinicy izmereniya" << "\n" << "1 - Futy\n" << "2 - Yard\n" << "3 - Sajen\n" << "4 - Pyad\n" << "5 - Duymy\n" << "6 - Mili\n";
+			cout << "Vyberete edinicy izmereniya" << "\n" << "1 - Futy\n" << "2 - Yard\n" << "3 - Sajen\n" << "4 - Pyad\n" << "5 - Duymy\n" << "6 - Mili\n" << "7 - Vernut' dlinu v metrah\n";
 			cin >> b;
 			switch (b)
 			{
@@ -150,6 +158,13 @@ void main()
 			case 6:
 			{
 				K.Milya();
+				system("pause");
+				system("cls");
+				break;
+			}
+			case 7:
+			{
+				K.DlinaMetry();
 				system("pause");
 				system("cls");
 				break;
