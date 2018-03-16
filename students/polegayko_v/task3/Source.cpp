@@ -73,14 +73,15 @@ public:
 		Translation.clear();
 		char b[200];
 		ifstream f("DictionaryER");
+		f >> b;
 		while (!f.eof())
 		{
-			f >> b;
 			string s1(b);
 			f >> b;
 			f >> b;
 			string s2(b);
 			AddWord(s1, s2);
+			f >> b;
 		}
 	}
 
@@ -90,8 +91,9 @@ void main()
 	setlocale(LC_ALL, "");
 	Dictionary d;
 	d.AddWord("pot", "горшок");
-	d["pot"] = "горшок)";
-	cout << d["pot"];
+	d.AddWord("cat", "кот");
+	d.Save();
+	d.Open();
 
 	system("pause");
 }
