@@ -91,7 +91,7 @@ void main()
 	setlocale(LC_ALL, "");
 	Dictionary d;
 	d.AddWord("pot", "горшок");
-	d.AddWord("cat", "кот");
+	d.AddWord("hat", "шл€па");
 	d.Save();
 	d.Open();
 
