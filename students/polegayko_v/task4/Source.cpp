@@ -37,6 +37,11 @@ public:
 		ReleaseDate = d.ReleaseDate;
 		return *this;
 	}
+	string operator[](int i)
+	{
+		string s = SongName[i] + " / " + Poet[i] + " / " + Composer[i] + " / " + Musician[i] + " / " + Album[i] + " / " + ReleaseDate[i];
+		return s;
+	}
 	void AddSong(string name, string poet, string composer, string musician, string album, string date)
 	{
 		SongName.push_back(name);
@@ -55,29 +60,45 @@ public:
 		Album[i]=album;
 		ReleaseDate[i]=date;
 	} 
-	void FindSong(string s, string s1)
+	int FindSong(string s, string s1)
 	{
 		for (int i = 0; i < SongName.size(); i++)
 			if ((SongName[i] == s) && (Musician[i] == s1))
-				cout << SongName[i] << "/" << Poet[i] << "/" << Composer[i] << "/" << Musician[i] << "/" << Album[i] << "/" << ReleaseDate[i] << "\n";
+				return i;
+		return -1;
 	}
-	void FindByPoet(string poet)
+	vector<string> FindByPoet(string poet)
 	{
+		vector<string> fbp; 
 		for (int i = 0; i < Poet.size(); i++)
 			if (Poet[i] == poet)
-				 cout<<SongName[i]<<"/"<<Poet[i]<<"/"<<Composer[i]<<"/"<<Musician[i]<<"/"<<Album[i]<<"/"<<ReleaseDate[i]<<"\n";
+			{
+				string s = SongName[i] + " / " + Poet[i] + " / " + Composer[i] + " / " + Musician[i] + " / " + Album[i] + " / " + ReleaseDate[i];
+				fbp.push_back(s);
+			}
+		return fbp;
 	}
-	void FindByComposer(string composer)
+	vector<string> FindByComposer(string composer)
 	{
+		vector<string> fbc;
 		for (int i = 0; i < Composer.size(); i++)
 			if (Composer[i]==composer)
-				cout << SongName[i] << "/" << Poet[i] << "/" << Composer[i] << "/" << Musician[i] << "/" << Album[i] << "/" << ReleaseDate[i] << "\n";
+			{
+				string s = SongName[i] + " / " + Poet[i] + " / " + Composer[i] + " / " + Musician[i] + " / " + Album[i] + " / " + ReleaseDate[i];
+				fbc.push_back(s);
+			}
+		return fbc;
 	}
-	void FindByMusician(string musician)
+	vector<string> FindByMusician(string musician)
 	{
+		vector<string> fbm;
 		for (int i = 0; i < Musician.size(); i++)
 			if (Musician[i] == musician)
-				cout << SongName[i] << "/" << Poet[i] << "/" << Composer[i] << "/" << Musician[i] << "/" << Album[i] << "/" << ReleaseDate[i] << "\n";
+				{
+					string s = SongName[i] + " / " + Poet[i] + " / " + Composer[i] + " / " + Musician[i] + " / " + Album[i] + " / " + ReleaseDate[i];
+					fbm.push_back(s);
+				}
+		return fbm;
 	}
 	int CountSong()
 	{
@@ -157,14 +178,49 @@ public:
 		f >> b;
 		while (!f.eof())
 		{
-			string s1(b);
+			string s1;
+			while (b[0] != '/')
+			{
+				s1 += b;
+				s1 += " ";
+				f >> b;
+			}
 			f >> b;
+			string s2;
+			while (b[0] != '/')
+			{
+				s2 += b;
+				s2 += " ";
+				f >> b;
+			}
 			f >> b;
-			string s2(b);
-			string s3(b);
-			string s4(b);
-			string s5(b);
-			AddSong(s1, s2, s3, s4, s5);
+			string s3;
+			while (b[0] != '/')
+			{
+				s3 += b;
+				s3 += " ";
+				f >> b;
+			}
+			f >> b;
+			string s4;
+			while (b[0] != '/')
+			{
+				s4 += b;
+				s4 += " ";
+				f >> b;
+			}
+			f >> b;
+			string s5;
+			while (b[0] != '/')
+			{
+				s5 += b;
+				s5 += " ";
+				f >> b;
+			}
+			string s6;
+			f >> b;
+			s6 = b;
+			AddSong(s1, s2, s3, s4, s5, s6);
 			f >> b;
 		}
 	}
@@ -177,5 +233,7 @@ void main()
 	s.AddSong("Букет", "Николай Рубцов", "Александр Барыкин", "Александр Барыкин", "Букет", "1988");
 	s.Save();
 	s.Open();
-
+	for (int i = 0; i < s.CountSong(); i++)
+		cout << s[i] << "\n";
+	system("pause");
 }
