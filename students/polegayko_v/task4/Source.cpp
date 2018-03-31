@@ -15,6 +15,7 @@ private:
 	vector<string> Musician;
 	vector<string> Album;
 	vector<string> ReleaseDate;
+	string tmp;
 public:
 	Songster() {};
 	Songster(const Songster& p)
@@ -95,6 +96,33 @@ public:
 		Musician.erase(Musician.begin()+i);
 		Album.erase(Album.begin()+i);
 		ReleaseDate.erase(ReleaseDate.begin()+i);
+	}
+	void Sort()
+	{
+		for (int i = 0; i < SongName.size() - 1; i++)
+		
+			if (SongName[i] > SongName[i + 1])
+			{
+				tmp = SongName[i];
+				SongName[i] = SongName[i + 1];
+				SongName[i + 1] = tmp;
+				tmp = Poet[i];
+				Poet[i] = Poet[i + 1];
+				Poet[i + 1] = tmp;
+				tmp = Composer[i];
+				Composer[i] = Composer[i + 1];
+				Composer[i + 1] = tmp;
+				tmp = Musician[i];
+				Musician[i] = Musician[i + 1];
+				Musician[i + 1] = tmp;
+				tmp = Album[i];
+				Album[i] = Album[i + 1];
+				Album[i + 1] = tmp;
+				tmp = ReleaseDate[i];
+				ReleaseDate[i] = ReleaseDate[i + 1];
+				ReleaseDate[i + 1] = tmp;
+			}
+		
 	}
 	void Save()
 	{
