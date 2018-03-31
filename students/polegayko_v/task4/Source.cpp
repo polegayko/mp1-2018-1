@@ -53,7 +53,7 @@ public:
 		Musician[i]=musician;
 		Album[i]=album;
 		ReleaseDate[i]=date;
-	}
+	} 
 	void FindSong(string s, string s1)
 	{
 		for (int i = 0; i < SongName.size(); i++)
