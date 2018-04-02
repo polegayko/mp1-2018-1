@@ -50,7 +50,7 @@ public:
 		Musician.push_back(musician);
 		Album.push_back(album);
 		ReleaseDate.push_back(date);
-		for (int j= SongName.size()-1;j>=0;j--)
+		for (int j= SongName.size()-1;j>=0;j--) 
 		for (int i = 0; i < j; i++)
 
 			if (SongName[i] > SongName[i + 1])
