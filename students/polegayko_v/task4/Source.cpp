@@ -50,6 +50,30 @@ public:
 		Musician.push_back(musician);
 		Album.push_back(album);
 		ReleaseDate.push_back(date);
+		for (int j= SongName.size()-1;j>=0;j--)
+		for (int i = 0; i < j; i++)
+
+			if (SongName[i] > SongName[i + 1])
+			{
+				tmp = SongName[i];
+				SongName[i] = SongName[i + 1];
+				SongName[i + 1] = tmp;
+				tmp = Poet[i];
+				Poet[i] = Poet[i + 1];
+				Poet[i + 1] = tmp;
+				tmp = Composer[i];
+				Composer[i] = Composer[i + 1];
+				Composer[i + 1] = tmp;
+				tmp = Musician[i];
+				Musician[i] = Musician[i + 1];
+				Musician[i + 1] = tmp;
+				tmp = Album[i];
+				Album[i] = Album[i + 1];
+				Album[i + 1] = tmp;
+				tmp = ReleaseDate[i];
+				ReleaseDate[i] = ReleaseDate[i + 1];
+				ReleaseDate[i + 1] = tmp;
+			}
 	}
 	void ChangeSongInfo(int i, string name, string poet, string composer, string musician, string album, string date)
 	{
@@ -117,33 +141,6 @@ public:
 		Musician.erase(Musician.begin()+i);
 		Album.erase(Album.begin()+i);
 		ReleaseDate.erase(ReleaseDate.begin()+i);
-	}
-	void Sort()
-	{
-		for (int i = 0; i < SongName.size() - 1; i++)
-		
-			if (SongName[i] > SongName[i + 1])
-			{
-				tmp = SongName[i];
-				SongName[i] = SongName[i + 1];
-				SongName[i + 1] = tmp;
-				tmp = Poet[i];
-				Poet[i] = Poet[i + 1];
-				Poet[i + 1] = tmp;
-				tmp = Composer[i];
-				Composer[i] = Composer[i + 1];
-				Composer[i + 1] = tmp;
-				tmp = Musician[i];
-				Musician[i] = Musician[i + 1];
-				Musician[i + 1] = tmp;
-				tmp = Album[i];
-				Album[i] = Album[i + 1];
-				Album[i + 1] = tmp;
-				tmp = ReleaseDate[i];
-				ReleaseDate[i] = ReleaseDate[i + 1];
-				ReleaseDate[i + 1] = tmp;
-			}
-		
 	}
 	void Save()
 	{
