@@ -4,7 +4,7 @@
 #include <conio.h>
 #include <stdio.h>
 #include <fstream> 
-#include <string>
+#include <string> 
 #include <vector>
 #include <locale.h> 
 using namespace std;
@@ -66,7 +66,7 @@ ostream &operator<<(ostream &os, const Check &pr)
 	os << endl;
 	os << "Стоимость: " << pr.cost << endl;
 	os << "Суммарная скидка: " << pr.sumdiscount << endl;
-	os << "Итоговая стоимость: " << pr.finalCost << endl << endl;
+	os << "Итого: " << pr.finalCost << endl << endl;
 	return os;
 };
 
