@@ -197,7 +197,7 @@ public:
 		goodsScan.clear();
 	}
 };
-int main()
+void main()
 {
 	setlocale(LC_ALL, "Russian");
 	CashBox cashbox;
