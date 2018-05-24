@@ -43,9 +43,9 @@ public:
 		s = _s;
 		bac[0] = 0;
 		bac[1] = 0;
-		for (i = 0; i < 4; i++)
+		for (i = 0; i < n; i++)
 		{ 
-			for (j = 0; j < 4; j++)
+			for (j = 0; j < n; j++)
 					if (sc[i] == s[j]) 
 					{
 						if(i == j)
