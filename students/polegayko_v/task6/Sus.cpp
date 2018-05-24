@@ -43,20 +43,15 @@ public:
 		s = _s;
 		bac[0] = 0;
 		bac[1] = 0;
-		for (i = 0; i < n; i++) 
-		{
-			for (j = i + 1; j < n; j++)
-				if (s[i] == s[j])
-					return bac;
-		}
-		for (i = 0; i < n; i++)
-		{
-			if (sc[i] == s[i])
-				bac[1]++;
-			else
-				for (j = i+1; j < n; j++)
-					if (sc[j] == s[i])
-						bac[0]++;
+		for (i = 0; i < 4; i++)
+		{ 
+			for (j = 0; j < 4; j++)
+					if (sc[i] == s[j]) 
+					{
+						if(i == j)
+						bac[1]++;
+						else bac[0]++;
+					}
 		}
 		return bac;
 	}
